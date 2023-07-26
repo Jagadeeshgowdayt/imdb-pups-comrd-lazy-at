@@ -1317,8 +1317,8 @@ async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
         #stick = await client.send_sticker(chat_id=message.chat.id, sticker="CAACAgIAAxkBAAEB9LlksCjXNcLSClyKFWYW6LkDb6B5gQACtCMAAphLKUjeub7NKlvk2S8E")
-        stick_id = "CAACAgIAAxkBAAIDC2SwKQwkoG3VNk-4cchWhrb2J2xqAAK0IwACmEspSN65vs0qW-TZLwQ"
-        stick = await message.reply_sticker(sticker=stick_id)
+       # stick_id = "CAACAgIAAxkBAAIDC2SwKQwkoG3VNk-4cchWhrb2J2xqAAK0IwACmEspSN65vs0qW-TZLwQ"
+      #  stick = await message.reply_sticker(sticker=stick_id)
         settings = await get_settings(message.chat.id)
         if message.text.startswith("/"): return  # ignore commands
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
@@ -1355,8 +1355,8 @@ async def auto_filter(client, msg, spoll=False):
     else:
         settings = await get_settings(msg.message.chat.id)
         message = msg.message.reply_to_message 
-        stick_id = "CAACAgIAAxkBAAEJrutksEAp9DUFQVyHzVe_1T1-TVtebQACKBYAArAOoUuS9aoVZQ9R8S8E"
-        stick0 = await message.reply_sticker(sticker=stick_id)# msg will be callback query
+        #stick_id = "CAACAgIAAxkBAAEJrutksEAp9DUFQVyHzVe_1T1-TVtebQACKBYAArAOoUuS9aoVZQ9R8S8E"
+        #stick0 = await message.reply_sticker(sticker=stick_id)# msg will be callback query
         search, files, offset, total_results = spoll
         temp.KEYWORD[message.from_user.id] = search
 	    
@@ -1509,7 +1509,7 @@ async def auto_filter(client, msg, spoll=False):
         try:
             z = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
-            await stick.delete()
+           # await stick.delete()
             if SELF_DELETE is True:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
                 await z.delete()
@@ -1517,7 +1517,7 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             m = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await stick.delete()
+           # await stick.delete()
             if SELF_DELETE is True:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
                 await m.delete()
@@ -1525,7 +1525,7 @@ async def auto_filter(client, msg, spoll=False):
         except Exception as e:
             logger.exception(e)
             n = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            await stick.delete()
+           # await stick.delete()
             if SELF_DELETE is True:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
                 await n.delete()         
