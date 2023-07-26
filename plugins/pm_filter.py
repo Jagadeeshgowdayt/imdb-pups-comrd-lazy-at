@@ -1513,6 +1513,7 @@ async def auto_filter(client, msg, spoll=False):
             if SELF_DELETE is True:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
                 await z.delete()
+                await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
