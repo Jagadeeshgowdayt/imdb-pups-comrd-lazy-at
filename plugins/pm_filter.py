@@ -1521,19 +1521,21 @@ async def auto_filter(client, msg, spoll=False):
             if SELF_DELETE is True:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
                 await m.delete()
-            
+                await message.delete()
         except Exception as e:
             logger.exception(e)
             n = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
            # await stick.delete()
             if SELF_DELETE is True:
                 await asyncio.sleep(SELF_DELETE_SECONDS)
-                await n.delete()         
+                await n.delete()   
+                await message.delete()
     else:
         p = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
         if SELF_DELETE is True:
             await asyncio.sleep(SELF_DELETE_SECONDS)
             await p.delete()
+            await message.delete()
     if spoll:
         await msg.message.delete()
 
