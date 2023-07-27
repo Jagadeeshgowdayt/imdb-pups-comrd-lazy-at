@@ -15,7 +15,7 @@ db = myclient[DATABASE_NAME]
 col = db[COLLECTION_NAME]
 
 @Client.on_message(filters.chat(CHANNELS) & media_filter)
-async def start(client, message):
+async def media(client, message):
     
     for file_type in ("document", "video", "audio"):
         media = getattr(message, file_type, None)
